@@ -3,6 +3,7 @@ package com.example.Springbootdemo.controller;
 import com.example.Springbootdemo.model.Student;
 import com.example.Springbootdemo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -11,9 +12,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/students")
 public class StudentController {
-    private StudentService studentService;
+    private final StudentService studentService;
     @Autowired
-    public StudentController(StudentService studentService) {
+    public StudentController(@Qualifier("db") StudentService studentService) {
         this.studentService = studentService;
     }//this is constructor injection
 

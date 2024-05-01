@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
-@Service
+@Service("in-memory")
 public class StudentServiceImpl implements StudentService{
 
     private final InmemoryStudentDao dao;
